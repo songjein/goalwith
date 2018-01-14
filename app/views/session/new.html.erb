@@ -1,0 +1,21 @@
+<div style="font-weight:bold; font-size:2em;">Goal With</div>
+<div style="color:rgb(150,150,150);">'지향점을 함께하다'</div>
+
+<div style="height:10px"></div>
+
+<%= form_for(:session, url: login_path, class: "") do |f| %>
+	<% if flash[:notice] %>
+		<div style="color:red">
+			<%= flash[:notice].html_safe %>
+		</div>
+	<% end%>
+
+	<%= f.text_field :user_id, placeholder: "Id" %>
+	<%= f.password_field :password, placeholder: "Password" %>
+	<%= f.submit "로그인" %>
+<% end %>
+
+<div style="height:10px"></div>
+
+<%= link_to "회원가입", new_user_path %>
+
