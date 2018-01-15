@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bcrypt-ruby', :require => "bcrypt"
 
+gem 'acts-as-taggable-on', "~> 5.0"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

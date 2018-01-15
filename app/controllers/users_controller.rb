@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 	require 'digest/sha1'
 
 	def show
+		@goals = current_user.goals
 	end
 
 	def new

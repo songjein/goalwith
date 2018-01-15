@@ -1,2 +1,15 @@
 <span style="color:red"><%= current_user.nick %></span>님 환영합니다
-<%= link_to "로그아웃", logout_path %>
+<%= link_to "로그아웃", logout_path %> 
+
+<div style="height:10px"></div>
+
+<%= link_to "목표 생성", new_goal_path %>
+
+<div style="height:10px"></div>
+
+<% @goals.each do |g| %>
+	<div class="goal">
+		- [<span class="label"><%= g.label_list %></span>] 
+		<span class="goal-body" style="color:<%= g.color %>; font-weight:<%=g.weight%>"><%= g.body %></span>
+	</div>
+<% end %>

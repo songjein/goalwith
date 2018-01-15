@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyString
+  from: 2018-01-15 07:00:29
+  to: 2018-01-15 07:00:29
+  isCompleted: false
+  user: one
+  color: MyString
+  weight: MyString
+  counts: 1
+
+two:
+  body: MyString
+  from: 2018-01-15 07:00:29
+  to: 2018-01-15 07:00:29
+  isCompleted: false
+  user: two
+  color: MyString
+  weight: MyString
+  counts: 1

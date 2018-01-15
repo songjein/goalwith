@@ -1,0 +1,46 @@
+<div style="font-size:1.3em; font-weight:bold; margin-bottom:10px;">
+	목표 만들기 
+</div>
+<%= form_for(@goal, html: {autocomplete: "off"}) do |f| %>
+	<div style="color:red;">
+		<% @goal.errors.full_messages.each do |msg| %>
+			<div><%= msg %> </div>
+		<% end %>
+	</div>
+	<%= f.label :label_list, "라벨" %> 
+	<%= f.text_field :label_list, placeholder: "스터디, 다이어트, 운동" , class: "", :autocomplete => :off%>
+
+	<div style="height:5px"></div>
+	<%= f.label :body, "목표" %> 
+	<%= f.text_field :body, placeholder: "물 1L 마시기" , class: "", :autocomplete => :off%>
+
+	<div style="height:5px"></div>
+	<%= f.label :from, "부터" %> 
+	<%= f.datetime_select :from, ampm: true, class: "" %>
+
+	<div style="height:5px"></div>
+	<%= f.label :to, "까지" %> 
+	<%= f.datetime_select :to,  ampm: true, class: "" %>
+
+	<div style="height:5px"></div>
+	<%= f.label :counts, "몇 번" %> 
+	<%= f.number_field :counts, value: 1 , class: "", :autocomplete => :off%>
+
+	<div style="height:5px"></div>
+	<%= f.label :color, "색 지정" %> 
+	<%= f.color_field :color, value: "#FF9999", class: "" %>
+
+	<div style="height:5px"></div>
+	<%= f.label :weight, "굵기" %> 
+	<%= f.radio_button :weight, "normal", checked: true %>보통
+	<%= f.radio_button :weight, "bold" %>굵게
+	<%= f.radio_button :weight, "900" %>매우 굵게
+
+	<div style="height:10px"></div>
+	<%= f.submit "생성하기", id: "" %>
+<% end %>    
+
+<div style="height:10px"></div>
+
+<%= link_to "취소", current_user%>
+
