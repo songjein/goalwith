@@ -1,21 +1,66 @@
-<div style="font-weight:bold; font-size:2em;">Goal With</div>
-<div style="color:rgb(150,150,150);">'지향점을 함께하다'</div>
-
-<div style="height:10px"></div>
-
+<!-- 로그인 -->
+<!-- 로그인 -->
+<!-- 로그인 -->
 <%= form_for(:session, url: login_path, class: "") do |f| %>
 	<% if flash[:notice] %>
 		<div style="color:red">
 			<%= flash[:notice].html_safe %>
 		</div>
+		<div style="height:10px"></div>
 	<% end%>
 
 	<%= f.text_field :user_id, placeholder: "Id" %>
 	<%= f.password_field :password, placeholder: "Password" %>
 	<%= f.submit "로그인" %>
 <% end %>
+<!-- 로그인 END -->
+<!-- 로그인 END -->
+<!-- 로그인 END -->
 
 <div style="height:10px"></div>
 
 <%= link_to "회원가입", new_user_path %>
+
+<div style="height:10px"></div>
+
+<div id="service-status">
+	<div class="label-status">
+		<span class="goal-label">다이어트</span> -  <span class="goal-label-count">1344</span>명이 함께하고 있습니다
+	</div>
+	<div class="label-status">
+		<span class="goal-label">코딩</span> - <span class="goal-label-count">3821</span>명이 함께하고 있습니다
+	</div>
+	<div class="label-status">
+		<span class="goal-label">아키필드</span> - <span class="goal-label-count">29721</span>명이 함께하고 있습니다
+	</div>
+	<div class="label-status">
+		<span class="goal-label">독서</span> - <span class="goal-label-count">1010</span>명이 함께하고 있습니다
+	</div>
+	<div class="label-status">
+		<span class="goal-label">걷기</span> - <span class="goal-label-count">8921</span>명이 함께하고 있습니다
+	</div>
+	<div class="label-status">
+		<span class="goal-label">물마시기</span> - <span class="goal-label-count">7217</span>명이 함께하고 있습니다
+	</div>
+	<div class="label-status">
+		<span class="goal-label">수학</span> - <span class="goal-label-count">314</span>명이 함께하고 있습니다
+	</div>
+	<div class="label-status">
+		<span class="goal-label">딥러닝</span> - <span class="goal-label-count">523</span>명이 함께하고 있습니다
+	</div>
+</div>
+
+<div style="height:10px"></div>
+
+<div id="service-about">
+	골윗은 여러분의 <span style="color:red">지향점을 후원</span>합니다
+	<div style="height:5px"></div>
+	- 골윗에서 목표를 달성하고 의미 있는 삶을 가꾸어 나갈 수 있습니다
+	<div style="height:5px"></div>
+	- 골윗이 <b>서포터즈</b>로 부터 얻은 광고 수익은 지향점에 대한 영향력이 큰 분들에게 돌아갑니다
+	<div style="height:5px"></div>
+	골윗은 <span style="color:red">미니멀리즘을 지향</span>합니다
+	<div style="height:5px"></div>
+	- 최소한의 도구를 제공함으로써 <b>오프라인에서의 행동을 이끌어내고자</b> 합니다
+</div>
 

@@ -1,3 +1,22 @@
 // Place all the styles related to the session controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#service-status {
+
+}
+
+.label-status{
+	color: rgb(150,150,150);
+	margin: 5px 0;
+}
+
+.goal-label{
+	color: rgb(50,50,50);
+	font-weight: bold;
+}
+
+.goal-label-count{
+	color:rgb(70,70,70);	
+	font-weight: bold;
+}

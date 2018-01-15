@@ -1,4 +1,6 @@
-<h1>회원가입</h1>
+<div style="font-size:1.3em; font-weight:bold; margin-bottom:5px;">
+	회원가입
+</div>
 <%= form_for(@user, html: {autocomplete: "off"}) do |f| %>
 	<div style="color:red;">
 		<% @user.errors.full_messages.each do |msg| %>
@@ -9,13 +11,13 @@
 	<div style="height:5px"></div>
 	<%= f.text_field :nick, placeholder: "닉네임", class: "", :autocomplete => :off %>
 	<div style="height:5px"></div>
-	<%= f.text_area :memo, placeholder: "자기소개", class: "", :autocomplete => :off %>
-	<div style="height:5px"></div>
 	<%= f.password_field :password, placeholder: "비밀번호", required: true, class: "", :autocomplete => :off %>
 	<div style="height:5px"></div>
 	<%= f.password_field :password_confirmation, placeholder: "비밀번호 확인", required: true, class: "", :autocomplete => :off %>
 	<div style="height:5px"></div>
-	<%= f.submit :submit, id: "" %>
+	<%= f.text_area :memo, placeholder: "자기소개", class: "", :autocomplete => :off %>
+	<div style="height:5px"></div>
+	<%= f.submit "가입하기", id: "" %>
 <% end %>    
 
 <div style="height:10px"></div>
