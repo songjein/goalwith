@@ -10,20 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180115072158) do
+ActiveRecord::Schema.define(version: 20180115122919) do
+
+  create_table "complete_goals", force: :cascade do |t|
+    t.integer "goal_id"
+    t.integer "log_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["goal_id"], name: "index_complete_goals_on_goal_id"
+    t.index ["log_id"], name: "index_complete_goals_on_log_id"
+  end
 
   create_table "goals", force: :cascade do |t|
     t.string "body"
     t.datetime "from"
     t.datetime "to"
-    t.boolean "isCompleted"
     t.integer "user_id"
     t.string "color"
     t.string "weight"
     t.integer "counts"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "isExpired"
     t.index ["user_id"], name: "index_goals_on_user_id"
+  end
+
+  create_table "logs", force: :cascade do |t|
+    t.text "body"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_logs_on_user_id"
   end
 
   create_table "taggings", force: :cascade do |t|

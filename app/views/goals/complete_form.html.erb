@@ -1,0 +1,10 @@
+<%= form_for(@log, html: {autocomplete: "off"}) do |f| %>
+	<%= f.text_area :body, placeholder: "로그 남기기", class: "", :autocomplete => :off %>
+	<div style="height:5px"></div>
+	<%= f.hidden_field :goal_id, value: @goal.id %>
+	<%= f.submit "달성하기", id: "" %>
+<% end %>
+
+<div style="height:10px"></div>
+
+<%= link_to "취소", current_user%>

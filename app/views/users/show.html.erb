@@ -1,3 +1,10 @@
+<% if flash[:notice] %>
+	<div style="color:red">
+		<%= flash[:notice].html_safe %>
+	</div>
+	<div style="height:10px"></div>
+<% end%>
+
 <span style="color:red"><%= current_user.nick %></span>님 환영합니다
 <%= link_to "로그아웃", logout_path %> 
 
@@ -9,7 +16,20 @@
 
 <% @goals.each do |g| %>
 	<div class="goal">
-		- [<span class="label"><%= g.label_list %></span>] 
+		- [<b class="label"><%= g.label_list %></b>] 
 		<span class="goal-body" style="color:<%= g.color %>; font-weight:<%=g.weight%>"><%= g.body %></span>
+		<%= link_to "달성하기", "/complete_form/" + g.id.to_s %>
 	</div>
 <% end %>
+ 
+<div style="height:10px"></div>
+오늘 달성한 것들
+<div style="height:10px"></div>
+
+<% @goals_completed_today.each do |g| %>
+	<div class="goal-finished" style="text-decoration:line-through">
+		- [<b class="label"><%= g.label_list %></b>] 
+		<span class="goal-body" style="color:rgb(150,150,150); font-weight:<%=g.weight%>"><%= g.body %></span>
+	</div>
+<% end %>
+ 

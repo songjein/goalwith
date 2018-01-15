@@ -15,15 +15,15 @@
 	<%= f.text_field :body, placeholder: "물 1L 마시기" , class: "", :autocomplete => :off%>
 
 	<div style="height:5px"></div>
-	<%= f.label :from, "부터" %> 
-	<%= f.datetime_select :from, ampm: true, class: "" %>
+	<%= f.label :from, "언제부터" %> 
+	<%= f.datetime_select :from, discard_minute: true, discard_hour: true, ampm: true, class: "" %>
 
 	<div style="height:5px"></div>
-	<%= f.label :to, "까지" %> 
-	<%= f.datetime_select :to,  ampm: true, class: "" %>
+	<%= f.label :to, "언제까지" %> 
+	<%= f.datetime_select :to, discard_minute: true, ampm: true, class: "" %>
 
 	<div style="height:5px"></div>
-	<%= f.label :counts, "몇 번" %> 
+	<%= f.label :counts, "최소 몇 번" %> 
 	<%= f.number_field :counts, value: 1 , class: "", :autocomplete => :off%>
 
 	<div style="height:5px"></div>

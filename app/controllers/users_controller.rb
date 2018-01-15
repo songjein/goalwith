@@ -1,8 +1,34 @@
 class UsersController < ApplicationController
 	require 'digest/sha1'
 
+	# 최소 몇번의 counts 정보가 있기 때문에 수정해야함
+	# 하루에 1번만 달성할 수 있도로 하는 것은 좋은 제약인듯
 	def show
-		@goals = current_user.goals
+		@goals = []
+		@goals_completed_today = []
+		current_user.goals.where(isExpired: false).each do |g|
+			# 한국이라 9시간 더해줌
+			today = (Time.now + 9.hours).strftime("%Y-%m-%d")
+
+			# 목표의 달성 목록 중, 오늘 달성한게 있다면 제외하기 위한 플래그
+			already_done_today = false
+			g.complete_goals.each do |cg|
+				if cg.created_at.to_date == today.to_date	
+					already_done_today = true
+					@goals_completed_today << g
+					break
+				end
+			end
+
+			# 오늘 달성이 안됐으면서, 목표의 to 날짜가 오늘 이후(포함)인 것들 만을 보여준다
+			if not already_done_today and g.to >= today
+				@goals << g
+			# 만약 목표가 만료되었다면 (어제까지) 여기서 처리
+			elsif g.to < today 
+				g.isExpired = true
+				g.save
+			end
+		end
 	end
 
 	def new
