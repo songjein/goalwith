@@ -5,6 +5,7 @@ class SessionController < ApplicationController
 		if current_user
 			redirect_to current_user 
 		else
+			@tags = ActsAsTaggableOn::Tag.most_used(10)
 			render "session/new"
 		end
 	end

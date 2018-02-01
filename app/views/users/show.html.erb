@@ -13,6 +13,12 @@
 <%= link_to "목표 생성", new_goal_path %>
 
 <div style="height:10px"></div>
+오늘 해야 할 것들
+<div style="height:10px"></div>
+
+<% if not @goals or @goals.length == 0 %>
+	- <span style="color:gray"><%= link_to "목표를 생성", new_goal_path%>해주세요</span>
+<% end %>
 
 <% @goals.each do |g| %>
 	<div class="goal">

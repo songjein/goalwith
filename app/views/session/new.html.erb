@@ -24,43 +24,25 @@
 <div style="height:10px"></div>
 
 <div id="service-status">
-	<div class="label-status">
-		<span class="goal-label">다이어트</span> -  <span class="goal-label-count">1344</span>명이 함께하고 있습니다
-	</div>
-	<div class="label-status">
-		<span class="goal-label">코딩</span> - <span class="goal-label-count">3821</span>명이 함께하고 있습니다
-	</div>
-	<div class="label-status">
-		<span class="goal-label">아키필드</span> - <span class="goal-label-count">29721</span>명이 함께하고 있습니다
-	</div>
-	<div class="label-status">
-		<span class="goal-label">독서</span> - <span class="goal-label-count">1010</span>명이 함께하고 있습니다
-	</div>
-	<div class="label-status">
-		<span class="goal-label">걷기</span> - <span class="goal-label-count">8921</span>명이 함께하고 있습니다
-	</div>
-	<div class="label-status">
-		<span class="goal-label">물마시기</span> - <span class="goal-label-count">7217</span>명이 함께하고 있습니다
-	</div>
-	<div class="label-status">
-		<span class="goal-label">수학</span> - <span class="goal-label-count">314</span>명이 함께하고 있습니다
-	</div>
-	<div class="label-status">
-		<span class="goal-label">딥러닝</span> - <span class="goal-label-count">523</span>명이 함께하고 있습니다
-	</div>
+	<h3>우리가 함께하고 있는 목표들</h3>
+	<% @tags.each do |t| %>
+		<div class="label-status">
+			<span class="goal-label"><%= t %></span> -  <span class="goal-label-count"><%= Goal.tagged_with(t).length %></span>번 달성 되었습니다
+		</div>
+	<% end %>
 </div>
 
 <div style="height:10px"></div>
 
 <div id="service-about">
+	<h3>About GoalWith</h3>
 	골윗은 여러분의 <span style="color:red">지향점을 후원</span>합니다
 	<div style="height:5px"></div>
 	- 골윗에서 목표를 달성하고 의미 있는 삶을 가꾸어 나갈 수 있습니다
 	<div style="height:5px"></div>
-	- 골윗이 <b>서포터즈</b>로 부터 얻은 광고 수익의 일정 부분은 지향점에 대한 영향력이 큰 분들에게 돌아갑니다
+	<span style="color:gray;text-decoration-line: line-through">- 골윗이 <b>서포터즈</b>로 부터 얻은 광고 수익의 일정 부분은 지향점에 대한 영향력이 큰 분들에게 돌아갑니다</span> (예정)
 	<div style="height:5px"></div>
 	골윗은 <span style="color:red">미니멀리즘을 지향</span>합니다
 	<div style="height:5px"></div>
-	- 최소한의 도구를 제공함으로써 <b>오프라인에서의 행동을 이끌어내고자</b> 합니다
+	- 최소한의 도구를 제공함으로써 <b style="text-decoration-line: underline">오프라인에서의 행동을 이끌어내고자</b> 합니다
 </div>
-
