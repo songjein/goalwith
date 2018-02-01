@@ -31,6 +31,34 @@ class UsersController < ApplicationController
 		end
 	end
 
+	# TODO: 계산 효율 계선 
+	def statistics
+		@pie= {}
+		@calendar = {}
+		current_user.logs.each do |l|
+			# 파이차트 정보
+			l.complete_goal.goal.labels.each do |l|
+				tag = l.name
+				if @pie.key? tag
+					@pie[tag] += 1
+				else
+					@pie[tag] = 1
+				end
+			end
+
+			# 캘린더 정보
+			year = l.created_at.year
+			month= l.created_at.month
+			day = l.created_at.day
+			key = "#{year}/#{month}/#{day}"
+			if @calendar.key? key
+				@calendar[key] += 1
+			else 
+				@calendar[key] = 1
+			end
+		end
+	end
+
 	def new
 		@user = User.new
 	end
